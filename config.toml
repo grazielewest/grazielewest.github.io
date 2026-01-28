@@ -1,0 +1,22 @@
+baseURL = "https://grazielewest.github.io/"
+title = "Blog da Graziele"
+languageCode = "pt-br"
+theme = ""
+
+[params]
+  author = "Graziele West"
+  description = "Blog sobre tecnologia e desenvolvimento"
+  
+[menu]
+  [[menu.main]]
+    name = "🏠 Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "📝 Blog"
+    url = "/posts/"
+    weight = 2
+  [[menu.main]]
+    name = "ℹ️ Sobre"
+    url = "/sobre/"
+    weight = 3
