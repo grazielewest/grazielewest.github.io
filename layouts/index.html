@@ -1,0 +1,54 @@
+{{ define "main" }}
+    <section style="text-align: center; margin-bottom: 3rem;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary);">
+            👋 Bem-vindo ao {{ .Site.Title }}
+        </h1>
+        <p style="font-size: 1.2rem; color: #6b7280; max-width: 600px; margin: 0 auto;">
+            Um blog sobre tecnologia, desenvolvimento web e aprendizados na programação.
+        </p>
+    </section>
+
+    <section>
+        <h2 style="margin-bottom: 1.5rem; color: var(--text);">📚 Posts Recentes</h2>
+        
+        {{ $posts := where .Site.RegularPages "Section" "posts" }}
+        {{ if $posts }}
+            <div class="home-posts">
+            {{ range first 3 $posts }}
+                <a href="{{ .Permalink }}" class="post-card">
+                    <h3>{{ .Title }}</h3>
+                    <div class="post-meta">
+                        <span>📅 {{ .Date.Format "02/01/2006" }}</span>
+                        <span>⏱️ {{ .ReadingTime }} min</span>
+                        {{ if .Params.tags }}
+                        <span>🏷️ {{ delimit .Params.tags ", " }}</span>
+                        {{ end }}
+                    </div>
+                    {{ if .Params.summary }}
+                    <p style="color: #6b7280;">{{ .Params.summary }}</p>
+                    {{ end }}
+                </a>
+            {{ end }}
+            </div>
+            
+            {{ if gt (len $posts) 3 }}
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="/posts/" class="btn">Ver todos os posts</a>
+            </div>
+            {{ end }}
+        {{ else }}
+            <p>Nenhum post publicado ainda. Em breve!</p>
+        {{ end }}
+    </section>
+
+    <section style="margin-top: 4rem; padding: 2rem; background: #f0f9ff; border-radius: 8px;">
+        <h2 style="color: var(--primary); margin-bottom: 1rem;">💡 Sobre este blog</h2>
+        <p>Este blog foi construído com tecnologias modernas e simples:</p>
+        <ul style="margin-top: 1rem; list-style: none;">
+            <li style="margin-bottom: 0.5rem;">🚀 <strong>Hugo</strong>: Gerador de sites estáticos ultrarrápido</li>
+            <li style="margin-bottom: 0.5rem;">🎨 <strong>CSS Moderno</strong>: Design responsivo e limpo</li>
+            <li style="margin-bottom: 0.5rem;">☁️ <strong>GitHub Pages</strong>: Hospedagem gratuita e confiável</li>
+            <li>📝 <strong>Markdown</strong>: Para escrever posts de forma simples</li>
+        </ul>
+    </section>
+{{ end }}
