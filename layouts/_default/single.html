@@ -1,0 +1,38 @@
+{{ define "main" }}
+    <article>
+        <header style="margin-bottom: 2rem;">
+            <h1 style="color: var(--text); font-size: 2.5rem; margin-bottom: 1rem;">{{ .Title }}</h1>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; color: #6b7280; padding-bottom: 1rem; border-bottom: 2px solid var(--border);">
+                <span style="display: flex; align-items: center; gap: 0.5rem;">
+                    📅 <time>{{ .Date.Format "02 de Janeiro de 2006" }}</time>
+                </span>
+                <span style="display: flex; align-items: center; gap: 0.5rem;">
+                    ⏱️ {{ .ReadingTime }} min de leitura
+                </span>
+                {{ if .Params.tags }}
+                <span style="display: flex; align-items: center; gap: 0.5rem;">
+                    🏷️ 
+                    {{ range .Params.tags }}
+                    <a href="/tags/{{ . | urlize }}/" style="background: #e5e7eb; padding: 0.2rem 0.5rem; border-radius: 12px; color: var(--text); text-decoration: none; font-size: 0.85rem;">{{ . }}</a>
+                    {{ end }}
+                </span>
+                {{ end }}
+            </div>
+        </header>
+        
+        <div class="content" style="font-size: 1.125rem; line-height: 1.8;">
+            {{ .Content }}
+        </div>
+        
+        <footer style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <a href="/posts/" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary); text-decoration: none;">
+                    ← Voltar para todos os posts
+                </a>
+                <div style="font-size: 0.9rem; color: #6b7280;">
+                    Última atualização: {{ .Lastmod.Format "02/01/2006" }}
+                </div>
+            </div>
+        </footer>
+    </article>
+{{ end }}

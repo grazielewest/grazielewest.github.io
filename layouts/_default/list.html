@@ -1,0 +1,40 @@
+{{ define "main" }}
+    <h1 style="color: var(--text); margin-bottom: 2rem;">📝 Todos os Posts</h1>
+    
+    {{ if .Pages }}
+    <div style="display: grid; gap: 1.5rem;">
+    {{ range .Pages.GroupByDate "2006" }}
+        <section>
+            <h2 style="color: var(--primary); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border);">
+                {{ .Key }}
+            </h2>
+            <div style="display: grid; gap: 1rem;">
+            {{ range .Pages }}
+                <article style="padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                    <a href="{{ .Permalink }}" style="text-decoration: none; color: inherit;">
+                        <h3 style="color: var(--primary); margin-bottom: 0.5rem;">{{ .Title }}</h3>
+                        <div style="display: flex; gap: 1rem; color: #6b7280; font-size: 0.9rem; margin-bottom: 0.5rem;">
+                            <span>📅 {{ .Date.Format "02 de Janeiro" }}</span>
+                            <span>⏱️ {{ .ReadingTime }} min</span>
+                            {{ if .Params.tags }}
+                            <span>🏷️ 
+                                {{ range .Params.tags }}
+                                <span style="background: #e5e7eb; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.8rem; margin-left: 0.25rem;">{{ . }}</span>
+                                {{ end }}
+                            </span>
+                            {{ end }}
+                        </div>
+                        {{ if .Params.summary }}
+                        <p style="color: #6b7280;">{{ .Params.summary }}</p>
+                        {{ end }}
+                    </a>
+                </article>
+            {{ end }}
+            </div>
+        </section>
+    {{ end }}
+    </div>
+    {{ else }}
+    <p>Nenhum post encontrado.</p>
+    {{ end }}
+{{ end }}
