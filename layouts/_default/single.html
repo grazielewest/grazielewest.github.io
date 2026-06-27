@@ -4,10 +4,10 @@
             <h1 style="color: var(--text); font-size: 2.5rem; margin-bottom: 1rem;">{{ .Title }}</h1>
             <div style="display: flex; flex-wrap: wrap; gap: 1rem; color: #6b7280; padding-bottom: 1rem; border-bottom: 2px solid var(--border);">
                 <span style="display: flex; align-items: center; gap: 0.5rem;">
-                    📅 <time>{{ .Date.Format "02 de Janeiro de 2006" }}</time>
+                    📅 <time>{{ .Date.Format "02 January 2006" }}</time>
                 </span>
                 <span style="display: flex; align-items: center; gap: 0.5rem;">
-                    ⏱️ {{ .ReadingTime }} min de leitura
+                    ⏱️ {{ .ReadingTime }} min read
                 </span>
                 {{ if .Params.tags }}
                 <span style="display: flex; align-items: center; gap: 0.5rem;">
@@ -25,12 +25,12 @@
         </div>
         
         <footer style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
                 <a href="/posts/" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary); text-decoration: none;">
-                    ← Voltar para todos os posts
+                    ← Back to all posts
                 </a>
                 <div style="font-size: 0.9rem; color: #6b7280;">
-                    Última atualização: {{ .Lastmod.Format "02/01/2006" }}
+                    Last updated: {{ .Lastmod.Format "02/01/2006" }}
                 </div>
             </div>
         </footer>
