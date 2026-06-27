@@ -6,6 +6,7 @@ defaultContentLanguage = "en"
 [params]
   author = "Tamires"
   description = "Trading journal"
+  mainSections = ["posts"]
   
   [params.dateFormat]
     published = "Jan 02, 2006"
@@ -34,9 +35,6 @@ defaultContentLanguage = "en"
     [markup.goldmark.renderer]
       unsafe = true
 
-
-[params]
-  mainSections = ["posts"]
 
 [params.widgets]
   enabled = ["search", "archives", "tag-cloud"]
