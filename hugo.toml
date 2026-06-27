@@ -3,32 +3,87 @@ title = "Tamires Trades"
 theme = "stack"
 languageCode = "en-us"
 
-# DESABILITA RSS para testar
-disableKinds = ["RSS", "sitemap"]
-
 [params]
   author = "Tamires"
-  description = "Trading journal"
+  description = "A professional trading journal tracking my market journey"
+  mainSections = ["posts"]
+  featuredImageField = "image"
+  rssFullContent = true
+  favicon = "/favicon.ico"
+
+  dateFormat = "Jan 02, 2006"
+
+  sidebar = { compact = false, emoji = "📊", subtitle = "Trading Journal & Strategy" }
+
+  widgets = { enabled = ["search", "archives", "tag-cloud"] }
+
+  [params.post]
+    readMore = true
+    showDate = true
+    showReadingTime = true
+    showComments = false
+
+  [params.page]
+    showFullContent = false
+    showReadingTime = true
+    showWordCount = true
+    showDate = true
+    showComments = false
+    showTableOfContents = true
+    showRelated = false
+    sharingLinks = ["twitter", "linkedin"]
+
+  [[params.social]]
+    identifier = "github"
+    name = "GitHub"
+    url = "https://github.com/GrazieleWest"
   
-  # Configuração mínima do Stack
-  sidebar:
-    compact = false
-    emoji = "📊"
-    subtitle = "Trading Journal"
+  [[params.social]]
+    identifier = "twitter"
+    name = "Twitter"
+    url = "https://twitter.com/"
   
-  widgets:
-    enabled = ["search", "archives"]
+  [[params.social]]
+    identifier = "linkedin"
+    name = "LinkedIn"
+    url = "https://linkedin.com/"
 
 [menu]
   [[menu.main]]
+    identifier = "home"
     name = "Home"
     url = "/"
     weight = 10
+  
   [[menu.main]]
+    identifier = "journal"
     name = "Journal"
     url = "/posts/"
     weight = 20
+  
   [[menu.main]]
+    identifier = "strategy"
+    name = "Strategy"
+    url = "/strategy/"
+    weight = 30
+  
+  [[menu.main]]
+    identifier = "about"
     name = "About"
     url = "/about/"
-    weight = 30
+    weight = 40
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  series = "series"
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+    lineNos = true
+    style = "dracula"
+    
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
