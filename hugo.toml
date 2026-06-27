@@ -17,6 +17,11 @@ languageCode = "en-us"
 
   widgets = { enabled = ["search", "archives", "tag-cloud"] }
 
+  [outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+
   [params.post]
     readMore = true
     showDate = true
@@ -41,7 +46,7 @@ languageCode = "en-us"
   [[params.social]]
     identifier = "twitter"
     name = "Twitter"
-    url = "https://twitter.com/"
+    url = "https://twitter.com/grazielewest"
   
   [[params.social]]
     identifier = "linkedin"
