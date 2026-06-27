@@ -1,1 +1,27 @@
-baseURL = 'https://grazielewest.github.io/'
+baseURL = "https://grazielewest.github.io/"
+title = "Tamires Trades"
+languageCode = "en-us"
+theme = ""
+
+[params]
+  author = "Tamires"
+  description = "A professional trading journal tracking my market journey"
+  
+[menu]
+  [[menu.main]]
+    name = "🏠 Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "📝 Journal"
+    url = "/posts/"
+    weight = 2
+  [[menu.main]]
+    name = "ℹ️ About"
+    url = "/about/"
+    weight = 3
+  [[menu.main]]
+    name = "📊 Strategy"
+    url = "/strategy/"
+    weight = 4
+    
