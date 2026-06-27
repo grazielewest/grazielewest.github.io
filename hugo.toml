@@ -1,7 +1,7 @@
 baseURL = "https://grazielewest.github.io/"
 title = "Tamires Trades"
 theme = "stack"
-languageCode = "en-us"
+defaultContentLanguage = "en"
 
 [params]
   author = "Tamires"
@@ -11,23 +11,26 @@ languageCode = "en-us"
   rssFullContent = true
   favicon = "/favicon.ico"
 
+  # ========== DATAS - CONFIGURAÇÃO OBRIGATÓRIA ==========
   dateFormat = "Jan 02, 2006"
+  [params.dateFormat]
+    published = "Jan 02, 2006"
+    lastmod = "Jan 02, 2006"
 
+  # ========== SIDEBAR ==========
   sidebar = { compact = false, emoji = "📊", subtitle = "Trading Journal & Strategy" }
 
+  # ========== WIDGETS ==========
   widgets = { enabled = ["search", "archives", "tag-cloud"] }
 
-  [outputs]
-  home = ["HTML", "RSS", "JSON"]
-  section = ["HTML", "RSS", "JSON"]
-  page = ["HTML"]
-
+  # ========== POST ==========
   [params.post]
     readMore = true
     showDate = true
     showReadingTime = true
     showComments = false
 
+  # ========== PAGE ==========
   [params.page]
     showFullContent = false
     showReadingTime = true
@@ -38,6 +41,7 @@ languageCode = "en-us"
     showRelated = false
     sharingLinks = ["twitter", "linkedin"]
 
+  # ========== SOCIAL ==========
   [[params.social]]
     identifier = "github"
     name = "GitHub"
@@ -46,43 +50,50 @@ languageCode = "en-us"
   [[params.social]]
     identifier = "twitter"
     name = "Twitter"
-    url = "https://twitter.com/grazielewest"
+    url = "https://twitter.com/"
   
   [[params.social]]
     identifier = "linkedin"
     name = "LinkedIn"
     url = "https://linkedin.com/"
 
+# ========== MENU ==========
 [menu]
   [[menu.main]]
     identifier = "home"
     name = "Home"
     url = "/"
     weight = 10
+    pre = "🏠"
   
   [[menu.main]]
     identifier = "journal"
     name = "Journal"
     url = "/posts/"
     weight = 20
+    pre = "📝"
   
   [[menu.main]]
     identifier = "strategy"
     name = "Strategy"
     url = "/strategy/"
     weight = 30
+    pre = "📊"
   
   [[menu.main]]
     identifier = "about"
     name = "About"
     url = "/about/"
     weight = 40
+    pre = "ℹ️"
 
+# ========== TAXONOMIES ==========
 [taxonomies]
   tag = "tags"
   category = "categories"
   series = "series"
 
+# ========== MARKUP ==========
 [markup]
   [markup.highlight]
     noClasses = false
@@ -92,3 +103,9 @@ languageCode = "en-us"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+# ========== OUTPUTS ==========
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+  page = ["HTML"]
