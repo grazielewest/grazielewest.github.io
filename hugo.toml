@@ -5,107 +5,31 @@ defaultContentLanguage = "en"
 
 [params]
   author = "Tamires"
-  description = "A professional trading journal tracking my market journey"
-  mainSections = ["posts"]
-  featuredImageField = "image"
-  rssFullContent = true
-  favicon = "/favicon.ico"
-
-  # ========== DATAS - CONFIGURAÇÃO OBRIGATÓRIA ==========
-  dateFormat = "Jan 02, 2006"
+  description = "Trading journal"
+  
   [params.dateFormat]
     published = "Jan 02, 2006"
     lastmod = "Jan 02, 2006"
 
-  # ========== SIDEBAR ==========
-  sidebar = { compact = false, emoji = "📊", subtitle = "Trading Journal & Strategy" }
-
-  # ========== WIDGETS ==========
-  widgets = { enabled = ["search", "archives", "tag-cloud"] }
-
-  # ========== POST ==========
-  [params.post]
-    readMore = true
-    showDate = true
-    showReadingTime = true
-    showComments = false
-
-  # ========== PAGE ==========
-  [params.page]
-    showFullContent = false
-    showReadingTime = true
-    showWordCount = true
-    showDate = true
-    showComments = false
-    showTableOfContents = true
-    showRelated = false
-    sharingLinks = ["twitter", "linkedin"]
-
-  # ========== SOCIAL ==========
-  [[params.social]]
-    identifier = "github"
-    name = "GitHub"
-    url = "https://github.com/GrazieleWest"
-  
-  [[params.social]]
-    identifier = "twitter"
-    name = "Twitter"
-    url = "https://twitter.com/"
-  
-  [[params.social]]
-    identifier = "linkedin"
-    name = "LinkedIn"
-    url = "https://linkedin.com/"
-
-# ========== MENU ==========
 [menu]
   [[menu.main]]
-    identifier = "home"
     name = "Home"
     url = "/"
     weight = 10
-    pre = "🏠"
-  
   [[menu.main]]
-    identifier = "journal"
     name = "Journal"
     url = "/posts/"
     weight = 20
-    pre = "📝"
-  
   [[menu.main]]
-    identifier = "strategy"
     name = "Strategy"
     url = "/strategy/"
     weight = 30
-    pre = "📊"
-  
   [[menu.main]]
-    identifier = "about"
     name = "About"
     url = "/about/"
     weight = 40
-    pre = "ℹ️"
 
-# ========== TAXONOMIES ==========
-[taxonomies]
-  tag = "tags"
-  category = "categories"
-  series = "series"
-
-# ========== MARKUP ==========
 [markup]
-  [markup.highlight]
-    noClasses = false
-    lineNos = true
-    style = "dracula"
-    
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
-
-# ========== OUTPUTS ==========
-[outputs]
-  home = ["HTML", "RSS", "JSON"]
-  section = ["HTML", "RSS"]
-  page = ["HTML"]
