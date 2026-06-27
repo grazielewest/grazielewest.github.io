@@ -1,11 +1,11 @@
 baseURL = "https://grazielewest.github.io/"
-title = "Blog da Graziele"
-languageCode = "pt-br"
+title = "Tamires Trades"
+languageCode = "en-us"
 theme = ""
 
 [params]
-  author = "Graziele West"
-  description = "Blog sobre tecnologia e desenvolvimento"
+  author = "Tamires"
+  description = "A professional trading journal tracking my market journey"
   
 [menu]
   [[menu.main]]
@@ -13,10 +13,14 @@ theme = ""
     url = "/"
     weight = 1
   [[menu.main]]
-    name = "📝 Blog"
+    name = "📝 Journal"
     url = "/posts/"
     weight = 2
   [[menu.main]]
-    name = "ℹ️ Sobre"
-    url = "/sobre/"
+    name = "ℹ️ About"
+    url = "/about/"
     weight = 3
+  [[menu.main]]
+    name = "📊 Strategy"
+    url = "/strategy/"
+    weight = 4
