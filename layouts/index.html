@@ -1,38 +1,30 @@
 {{ define "main" }}
-    <!-- Hero Section: Foco em Disciplina -->
-    <section class="hero" style="text-align: center; margin-bottom: 4rem; padding: 2rem 0;">
-        <h1 style="font-size: 2.8rem; margin-bottom: 0.5rem;">Tamires Trades</h1>
-        <p style="font-size: 1.2rem; color: #6b7280; max-width: 650px; margin: 0 auto;">
-            Diário de bordo de um trader: registrando entradas, erros, estratégias e a busca pela consistência.
+    <!-- Header -->
+    <header class="text-center mb-16">
+        <h1 class="text-4xl font-extrabold text-slate-900 mb-4">Tamires Trades</h1>
+        <p class="text-lg text-slate-600 max-w-lg mx-auto">
+            My journey through the markets: documenting strategies, trades, and the pursuit of consistency.
         </p>
-    </section>
+    </header>
 
-    <!-- Seção de Trades Recentes (Grid) -->
+    <!-- Trading Journal Section -->
     <section>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-            <h2 style="margin: 0;">📊 Últimos Registros</h2>
-            <a href="/posts/" style="color: var(--primary); text-decoration: none; font-weight: bold;">Ver todo o diário &rarr;</a>
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-2xl font-bold">Recent Trade Logs</h2>
+            <a href="/posts/" class="text-primary font-semibold hover:underline">View all trades &rarr;</a>
         </div>
         
-        {{ $posts := where .Site.RegularPages "Section" "posts" }}
-        <div class="posts-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
-            {{ range first 3 $posts }}
-                <article class="post-card" style="border: 1px solid #e5e7eb; padding: 1.5rem; border-radius: 12px; transition: transform 0.2s;">
-                    <small style="color: #9ca3af; font-family: monospace;">{{ .Date.Format "2006-01-02" }}</small>
-                    <h3 style="margin: 0.5rem 0;">{{ .Title }}</h3>
-                    <p style="color: #4b5563; font-size: 0.95rem;">{{ .Params.summary | default "Sem resumo disponível." }}</p>
-                    <a href="{{ .Permalink }}" style="color: var(--primary); font-weight: 600;">Análise completa &raquo;</a>
+        <div class="grid gap-6 md:grid-cols-2">
+            {{ range first 4 (where .Site.RegularPages "Section" "posts") }}
+                <article class="p-6 bg-white border border-slate-200 rounded-xl hover:shadow-lg transition-shadow duration-300">
+                    <span class="text-sm font-mono text-primary">{{ .Date.Format "Jan 02, 2006" }}</span>
+                    <h3 class="text-xl font-bold mt-2 mb-3">{{ .Title }}</h3>
+                    <p class="text-slate-600 text-sm line-clamp-2">{{ .Summary }}</p>
+                    <div class="mt-4">
+                        <a href="{{ .Permalink }}" class="text-sm font-bold text-slate-900 hover:text-primary">Read Analysis &rarr;</a>
+                    </div>
                 </article>
             {{ end }}
         </div>
-    </section>
-
-    <!-- Seção: Estatísticas ou Destaques (Opcional) -->
-    <section style="margin-top: 4rem; padding: 2rem; border: 2px dashed #d1d5db; border-radius: 12px; text-align: center;">
-        <h3 style="margin-bottom: 1rem;">🎯 Foco Atual</h3>
-        <p style="max-width: 600px; margin: 0 auto;">
-            Atualmente operando <strong>Price Action</strong> em ativos de volatilidade. 
-            <em>"O mercado não te deve nada, a disciplina é tudo."</em>
-        </p>
     </section>
 {{ end }}
