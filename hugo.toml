@@ -1,7 +1,8 @@
 baseURL = "https://grazielewest.github.io/"
 title = "Tamires Trades"
 languageCode = "en-us"
-theme = "Stack"
+theme = "stack"
+defaultContentLanguage = "en"
 
 [params]
   author = "Tamires"
