@@ -33,3 +33,10 @@ defaultContentLanguage = "en"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+
+[params]
+  mainSections = ["posts"]
+
+[params.widgets]
+  enabled = ["search", "archives", "tag-cloud"]
