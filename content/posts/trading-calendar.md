@@ -16,3 +16,4 @@ categories: [“journal”]
 - **Losing Days:** 4
 - **Win Rate:** 65%
 - **Total P&L:** +$1,335
+ 
