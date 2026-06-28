@@ -1,0 +1,70 @@
+{{ $data := .Get "data" }}
+{{ $trades := index .Site.Data.trades $data }}
+
+<style>
+.trading-calendar {
+    max-width: 700px;
+    margin: 0 auto;
+}
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+.cal-header {
+    font-weight: 700;
+    text-align: center;
+    padding: 8px;
+    background: #1e293b;
+    color: white;
+    border-radius: 6px;
+}
+.cal-day {
+    text-align: center;
+    padding: 12px 0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background: #f1f5f9;
+}
+.cal-day .day-num {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+.profit { background: #dcfce7; color: #16a34a; }
+.loss { background: #fee2e2; color: #dc2626; }
+.break-even { background: #fef9c3; color: #ca8a04; }
+.no-trade { background: #f1f5f9; color: #94a3b8; }
+</style>
+
+<div class="trading-calendar">
+    <div class="cal-grid">
+        {{ range slice "Mon" "Tue" "Wed" "Thu" "Fri" "Sat" "Sun" }}
+        <div class="cal-header">{{ . }}</div>
+        {{ end }}
+        
+        {{ $firstDay := 1 }} <!-- Monday = 1 -->
+        {{ range $i := seq 0 41 }}
+            {{ $day := add $i 1 }}
+            {{ if and (ge $day 1) (le $day 31) }}
+                {{ $trade := where $trades.days "day" $day | first 1 }}
+                {{ if $trade }}
+                    {{ $pnl := index $trade 0 "pnl" }}
+                    {{ $class := "break-even" }}
+                    {{ if gt $pnl 0 }}{{ $class = "profit" }}{{ end }}
+                    {{ if lt $pnl 0 }}{{ $class = "loss" }}{{ end }}
+                    <div class="cal-day {{ $class }}">
+                        <div class="day-num">{{ $day }}</div>
+                        {{ if gt $pnl 0 }}+{{ end }}{{ $pnl }}
+                    </div>
+                {{ else }}
+                    <div class="cal-day no-trade">
+                        <div class="day-num">{{ $day }}</div>
+                        --
+                    </div>
+                {{ end }}
+            {{ else }}
+                <div class="cal-day no-trade" style="background: transparent;"></div>
+            {{ end }}
+        {{ end }}
+    </div>
+</div>

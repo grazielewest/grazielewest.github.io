@@ -1,0 +1,26 @@
+days:
+  - day: 1
+    pnl: 0
+    trades: 0
+  - day: 2
+    pnl: 50
+    trades: 1
+  - day: 3
+    pnl: -30
+    trades: 1
+  - day: 4
+    pnl: 0
+    trades: 0
+  - day: 5
+    pnl: 75
+    trades: 1
+  - day: 6
+    pnl: 120
+    trades: 2
+  - day: 8
+    pnl: -45
+    trades: 1
+  - day: 9
+    pnl: 60
+    trades: 1
+  
